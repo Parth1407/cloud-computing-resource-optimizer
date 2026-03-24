@@ -11,6 +11,8 @@
 
 A sophisticated cloud resource optimization platform that uses LSTM neural networks trained on **industry-grade production cluster data** to predict resource utilization and recommend optimal scaling actions — helping organizations maintain performance while minimizing costs.
 
+![Dashboard](dashboard-screenshot.png)
+
 ## Features
 
 ### AI-Powered Predictions
