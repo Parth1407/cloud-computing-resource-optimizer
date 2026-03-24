@@ -4,7 +4,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianG
 function Chart({ data, realtimeData }) {
   // Combine historical and real-time data
   const chartData = [...data];
-  
+
   if (realtimeData.length > 0) {
     realtimeData.forEach(item => {
       chartData.push({
@@ -36,15 +36,15 @@ function Chart({ data, realtimeData }) {
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-        <XAxis 
-          dataKey="time" 
+        <XAxis
+          dataKey="time"
           tick={{ fontSize: 12 }}
           angle={-45}
           textAnchor="end"
           height={80}
         />
-        <YAxis 
-          domain={[0, 100]} 
+        <YAxis
+          domain={[0, 100]}
           label={{ value: 'Utilization (%)', angle: -90, position: 'insideLeft' }}
         />
         <Tooltip content={<CustomTooltip />} />
