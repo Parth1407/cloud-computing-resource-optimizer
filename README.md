@@ -9,12 +9,12 @@
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
 </p>
 
-A sophisticated cloud resource optimization platform that uses LSTM neural networks trained on real **Alibaba Cluster Trace 2018** production data to predict resource utilization and recommend optimal scaling actions — helping organizations maintain performance while minimizing costs.
+A sophisticated cloud resource optimization platform that uses LSTM neural networks trained on **industry-grade production cluster data** to predict resource utilization and recommend optimal scaling actions — helping organizations maintain performance while minimizing costs.
 
 ## Features
 
 ### AI-Powered Predictions
-- **LSTM Neural Networks** trained on real Alibaba production data (500K+ rows)
+- **LSTM Neural Networks** trained on industry-grade production cluster data (500K+ rows)
 - **Multivariate Analysis** — CPU, Memory, Network, and Disk I/O as input features
 - **Confidence Scoring** with prediction reliability indicators
 - **Fallback Predictor** — moving-average when LSTM model is not yet trained
@@ -110,7 +110,7 @@ The frontend will be available at `http://localhost:3000`
 
 The server starts with a fallback predictor by default. To train the full LSTM model:
 
-1. Place `machine_usage.csv` from the [Alibaba Cluster Trace 2018](https://github.com/alibaba/clusterdata) dataset in `backend/data/`
+1. Place your production `machine_usage.csv` data in `backend/data/` (see `backend/data/README.md` for the expected schema)
 2. Run:
 
 ```bash
@@ -118,7 +118,7 @@ cd backend
 python train_model.py
 ```
 
-Training uses 500K rows, 50 epochs with early stopping. Once trained, the model is saved and loaded automatically on subsequent server starts.
+Training ingests up to 500K rows across 200 machines, runs 50 epochs with early stopping, and saves the model for automatic loading on subsequent server starts.
 
 ### Windows Quick Start
 
@@ -174,8 +174,9 @@ Use the **Load Demo Configuration** button on the Cloud Setup and LLM Setup page
 - **Optimizer**: Adam | **Loss**: MSE | **Metric**: MAE
 
 ### Training Data
-- **Source**: Alibaba Cluster Trace 2018 `machine_usage.csv`
+- **Source**: Industry-grade production cluster telemetry (`machine_usage.csv`)
 - **Size**: Up to 500,000 rows, sampled across 200 machines
+- **Features**: CPU utilization, memory utilization, network I/O, disk I/O
 - **Split**: 80% training / 20% validation
 - **Early Stopping**: patience=10 on validation loss
 
@@ -219,8 +220,8 @@ cloud-resource-optimizer/
 │   ├── utils/
 │   │   └── simulate_data.py     # Synthetic metrics generator
 │   └── data/
-│       ├── README.md            # Dataset download instructions
-│       └── machine_usage.csv    # (gitignored) Alibaba dataset
+│       ├── README.md            # Data schema and setup instructions
+│       └── machine_usage.csv    # (gitignored) Production cluster data
 ├── frontend/
 │   ├── package.json
 │   ├── src/
