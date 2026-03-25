@@ -29,7 +29,7 @@ class ActionEngine:
         else:
             new_instances = current_instances
             action = "Maintain"
-            reason = f"Utilization within optimal range ({avg_utilization:.1f}%). Current configuration is appropriate."
+            reason = f"Neural model trajectory ({avg_utilization:.1f}%) aligns with historical ingress patterns. Zero structural scaling required."
         
         cost_impact = self.cost_calculator.calculate_scaling_cost_impact(
             current_instances, new_instances, avg_utilization

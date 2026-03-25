@@ -1,0 +1,198 @@
+/* Global Navbar Styles */
+.global-navbar {
+  width: 100%;
+  height: 64px;
+  background: rgba(10, 10, 12, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.global-navbar.light {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Section */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.minimal-logo-nav {
+  position: relative;
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(139, 92, 246, 0.1));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.minimal-logo-nav .cloud-layer { color: #0ea5e9; position: absolute; z-index: 1; }
+.minimal-logo-nav .infinity-layer { position: absolute; bottom: 6px; right: 5px; color: #10b981; z-index: 2; opacity: 0.8;}
+
+.brand-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -0.5px;
+}
+.global-navbar.light .brand-name { color: #0f172a; }
+
+.pro-badge-nav {
+  font-size: 0.6rem; padding: 0.2rem 0.4rem; background: rgba(14, 165, 233, 0.1);
+  color: #0ea5e9; border-radius: 4px; font-weight: 700; letter-spacing: 1px;
+}
+
+/* Links Section */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.global-navbar.light .nav-link { color: #64748b; }
+
+.nav-link:hover:not(.disabled) {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.05);
+}
+.global-navbar.light .nav-link:hover:not(.disabled) { color: #0f172a; background: rgba(0, 0, 0, 0.05); }
+
+.nav-link.active {
+  color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.1);
+  font-weight: 600;
+}
+
+.nav-link.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Right Actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.2));
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+.global-navbar.light .user-name { color: #0f172a; }
+
+.user-role {
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.global-navbar.light .divider { background: rgba(0,0,0,0.1); }
+
+.nav-theme-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.nav-theme-toggle:hover {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+.global-navbar.light .nav-theme-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #64748b;
+}
+.global-navbar.light .nav-theme-toggle:hover {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.logout-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}

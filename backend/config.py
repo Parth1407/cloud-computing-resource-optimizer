@@ -26,9 +26,11 @@ class Settings(BaseSettings):
     scale_up_threshold: float = 80.0
     scale_down_threshold: float = 50.0
     
-    class Config:
-        env_file = ".env"
-        case_sensitive = False
+    model_config = {
+        "protected_namespaces": ("settings_",),
+        "env_file": ".env",
+        "case_sensitive": False
+    }
 
 settings = Settings()
 
